@@ -1,0 +1,14 @@
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\bin\Debug\MedicalManager.exe.config
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\bin\Debug\MedicalManager.exe
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\bin\Debug\MedicalManager.pdb
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.csprojResolveAssemblyReference.cache
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MainWindow.g.cs
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\App.g.cs
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager_MarkupCompile.cache
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager_MarkupCompile.lref
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MainWindow.baml
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.g.resources
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.Properties.Resources.resources
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.csproj.GenerateResource.Cache
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.exe
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.pdb

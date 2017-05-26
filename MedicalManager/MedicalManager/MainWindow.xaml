@@ -3,32 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:MedicalManager"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="MedicalManager.MainWindow"
-        ResizeMode="CanMinimize"
-       
-    
         BorderBrush="CornflowerBlue"
         BorderThickness="0"
         mc:Ignorable="d"
-        Title="Medical Manager" Height="400" Width="600" WindowStyle="None">
+        Title="Medical Manager" Height="500" Width="800" WindowStyle="SingleBorderWindow">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Background="LightBlue">
                 <MenuItem Header="_File"/>
             </Menu>
-            <TabControl Background="LightBlue">
-                <TabItem Header="Patients">
-                    <Grid>
-                        <Label Name="Pateint_Fname" Content="Patient First Name" Margin="0,11,483.4,307.4" RenderTransformOrigin="0.399,-1.15" />
-
-                        <TextBox Width="75" Height="25" MaxLength="50" FontStyle="Italic" Margin="10,29,509.4,300.4" RenderTransformOrigin="0.633,-0.897"/>
-                    </Grid>
+            <TabControl Background="LightBlue" FlowDirection="LeftToRight"  Height="440" Width="800">
+                <TabItem Header="Patients" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <StackPanel>
+                        <GroupBox Header="Patient Information" Name="PatientGroupBox">
+                            <Grid>
+                              
+                                <TextBox controls:TextBoxHelper.Watermark="Enter First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                                <TextBox controls:TextBoxHelper.Watermark="Enter Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="115" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
+                                <TextBox controls:TextBoxHelper.Watermark="Enter Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
+                                <TextBox controls:TextBoxHelper.Watermark="Suffix" MaxLength="50" FontStyle="Italic" Height="10" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="410,0,0,0" />
+                                <ComboBox  
+                                    x:Name="cboGender" SelectedIndex="0" HorizontalAlignment="Left" Height="28"  Margin="0,40,0,0" VerticalAlignment="Top" Width="120" >
+                                    <ComboBoxItem Name="SelectGender">Select Gender</ComboBoxItem>
+                                    <ComboBoxItem Name="Male"> Male </ComboBoxItem>
+                                    <ComboBoxItem Name="Female">Female</ComboBoxItem>
+                                </ComboBox>
+                                <DatePicker controls:TextBoxHelper.Watermark="DOB"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="130,40,0,0" />
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="Parent Information" Name="ParentInformationGroupBox">
+                            <Grid>
+                                <TextBox controls:TextBoxHelper.Watermark="Parent First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                                <TextBox controls:TextBoxHelper.Watermark="Parent Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="115" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
+                                <TextBox controls:TextBoxHelper.Watermark="Parent Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
+                                <TextBox controls:TextBoxHelper.Watermark="Suffix" MaxLength="50" FontStyle="Italic" Height="10" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="410,0,0,0" />
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
                 </TabItem>
-                <TabItem Header="Doctors"/>
-                <TabItem Header="Medication Lists"/>
-                <TabItem Header="Alergies"/>
-                <TabItem Header="Medical Notes"/>
+                <TabItem Header="Doctors" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TabItem Header="Medication Lists" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TabItem Header="Alergies" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TabItem Header="Medical Notes" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             </TabControl>
         </DockPanel>
     </Grid>

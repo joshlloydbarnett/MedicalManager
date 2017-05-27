@@ -15,12 +15,11 @@
             <Menu DockPanel.Dock="Top" Background="LightBlue">
                 <MenuItem Header="_File"/>
             </Menu>
-            <TabControl Background="LightBlue" FlowDirection="LeftToRight"  Height="440" Width="800">
+            <TabControl Background="LightBlue" FlowDirection="LeftToRight"   HorizontalAlignment="Stretch">
                 <TabItem Header="Patients" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                     <StackPanel>
                         <GroupBox Header="Patient Information" Name="PatientGroupBox">
                             <Grid>
-                              
                                 <TextBox controls:TextBoxHelper.Watermark="Enter First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
                                 <TextBox controls:TextBoxHelper.Watermark="Enter Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="115" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
                                 <TextBox controls:TextBoxHelper.Watermark="Enter Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
@@ -28,7 +27,7 @@
                                 <ComboBox  
                                     x:Name="cboGender" SelectedIndex="0" HorizontalAlignment="Left" Height="28"  Margin="0,40,0,0" VerticalAlignment="Top" Width="120" >
                                     <ComboBoxItem Name="SelectGender">Select Gender</ComboBoxItem>
-                                    <ComboBoxItem Name="Male"> Male </ComboBoxItem>
+                                    <ComboBoxItem Name="Male">Male</ComboBoxItem>
                                     <ComboBoxItem Name="Female">Female</ComboBoxItem>
                                 </ComboBox>
                                 <DatePicker controls:TextBoxHelper.Watermark="DOB"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="130,40,0,0" />
@@ -44,8 +43,32 @@
                         </GroupBox>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Doctors" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
-                <TabItem Header="Medication Lists" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TabItem Header="Doctors" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <StackPanel>
+                    <GroupBox Name="gpb_DoctorInformation" Header="Doctor Information">
+                        <Grid>
+                            <TextBox controls:TextBoxHelper.Watermark="Doctor First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                            <TextBox controls:TextBoxHelper.Watermark="Doctor Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="126" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
+                            <TextBox controls:TextBoxHelper.Watermark="Doctor Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
+                        </Grid>
+                    </GroupBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Medication Lists" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <DataGrid
+                        AutoGenerateColumns="false" 
+                        DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        CanUserAddRows="True" Name="DGMedicationList" ItemsSource="{Binding  ObservableEvtCode}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Medication Name" Binding="{Binding MedicationName}"/>
+                            <DataGridTextColumn Header="Medication Dose" Binding="{Binding MedicationDose}"/>
+                            <DataGridTextColumn Header="Medication Frequency" Binding="{Binding MedicationFrequency}"/>
+                            <DataGridTextColumn Header="Medication Pharmacy" Binding="{Binding MedicationPharmacy}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+                   
                 <TabItem Header="Alergies" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                 <TabItem Header="Medical Notes" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             </TabControl>

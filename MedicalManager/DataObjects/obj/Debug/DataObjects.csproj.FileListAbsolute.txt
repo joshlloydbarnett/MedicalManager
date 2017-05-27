@@ -1,0 +1,4 @@
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\DataObjects\bin\Debug\DataObjects.dll
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\DataObjects\bin\Debug\DataObjects.pdb
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\DataObjects\obj\Debug\DataObjects.dll
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\DataObjects\obj\Debug\DataObjects.pdb

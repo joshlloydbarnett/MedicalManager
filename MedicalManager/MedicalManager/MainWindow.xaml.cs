@@ -15,6 +15,9 @@ namespace MedicalManager
         //used for dynamic grid
         public ObservableCollection<Medication> MedicationList { get; set; }
 
+        //Windows
+        public NewMedicationWindow Nmw { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,13 +27,16 @@ namespace MedicalManager
             MedicationList[0].MedicationFrequency = "Daily";
             MedicationList[0].MedicationPharmacy = "Valley of the sun";
             MedicationList[0].MedicationDose = "1 ML";
+            MedicationList[0].DoctorPrescribed = "Dr. Serbin";
 
             MedicationList.Add(new Medication());
             MedicationList[1].MedicationName = "lans";
             MedicationList[1].MedicationFrequency = "day";
             MedicationList[1].MedicationPharmacy = "Valley ";
             MedicationList[1].MedicationDose = "2 ML";
-            
+            MedicationList[1].DoctorPrescribed = "Dr. Siaw";
+
+
         }
 
         public ObservableCollection<Medication> ObservableEvtCode
@@ -39,6 +45,14 @@ namespace MedicalManager
             {
                 return this.MedicationList;
             }
+        }
+
+        private void Row_Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //show new window to in put medication
+            Nmw = new NewMedicationWindow();
+            Nmw.Owner = this;
+            Nmw.Show();
         }
     }
 }

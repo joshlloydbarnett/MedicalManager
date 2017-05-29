@@ -11,10 +11,19 @@ namespace DataObjects
         public string MedicationFrequency { get; set; }
         public string MedicationPharmacy { get; set; }
         public string MedicalPersonGU { get; set; }
+        public string DoctorPrescribed { get; set; }
 
         public Medication()
         {
 
+        }
+        public Medication(string medName, string medDose, string medFreq, string medPharmacy, string drPrescribed)
+        {
+            MedicationName = medName;
+            MedicationFrequency = medFreq;
+            MedicationDose = medDose;
+            MedicationPharmacy = medPharmacy;
+            DoctorPrescribed = drPrescribed;
         }
     }
 }

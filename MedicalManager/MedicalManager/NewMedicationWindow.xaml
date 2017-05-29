@@ -1,0 +1,26 @@
+﻿<Window x:Class="MedicalManager.NewMedicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        BorderBrush="CornflowerBlue"
+        BorderThickness="0"
+        ResizeMode="NoResize"
+        Background="LightBlue"
+        Title="New Medication" WindowStartupLocation="CenterOwner" HorizontalAlignment="Center" Height="150" Width="600">
+    <StackPanel Background="LightBlue" Margin="15,10,0,0">
+            <Grid>
+                <TextBox x:Name="MedicationName" controls:TextBoxHelper.Watermark= "Enter Medication Name" Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBox x:Name="MedicationDose" controls:TextBoxHelper.Watermark= "Enter Medication Dose" Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,0,0,0" />
+                <TextBox x:Name="MedicationFrequency" controls:TextBoxHelper.Watermark= "Enter Medication Frequency" Height="20" Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,0,0,0" />
+                <TextBox x:Name="MedicationPharmacy" controls:TextBoxHelper.Watermark= "Enter Medication Pharmacy" Height="20" Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,40,0,0" />
+                <TextBox x:Name="DoctorPrescribed" controls:TextBoxHelper.Watermark= "Enter Doctor Prescribed" Height="20" Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="200,40,0,0" />
+            </Grid>
+        <Grid>
+            <Button Height="15" Width="30" Content="OK"  Margin="380,-10,0,0" Click="Ok_Button_Click"/>
+            <Button Height="15" Width="50" Content="Cancel"  Margin="480,-10,0,0" Click="Cancel_ButtonClick"/>
+        </Grid>
+    </StackPanel>
+</Window>

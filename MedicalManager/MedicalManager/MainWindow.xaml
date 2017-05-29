@@ -9,7 +9,7 @@
         BorderBrush="CornflowerBlue"
         BorderThickness="0"
         mc:Ignorable="d"
-        Title="Medical Manager" Height="500" Width="800" WindowStyle="SingleBorderWindow">
+        Title="Medical Manager" Height="500" Width="900" WindowStyle="SingleBorderWindow">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Background="LightBlue">
@@ -45,30 +45,37 @@
                 </TabItem>
                 <TabItem Header="Doctors" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                     <StackPanel>
-                    <GroupBox Name="gpb_DoctorInformation" Header="Doctor Information">
-                        <Grid>
-                            <TextBox controls:TextBoxHelper.Watermark="Doctor First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                            <TextBox controls:TextBoxHelper.Watermark="Doctor Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="126" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
-                            <TextBox controls:TextBoxHelper.Watermark="Doctor Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
-                        </Grid>
-                    </GroupBox>
+                        <GroupBox Name="gpb_DoctorInformation" Header="Doctor Information">
+                            <Grid>
+                                <TextBox controls:TextBoxHelper.Watermark="Doctor First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                                <TextBox controls:TextBoxHelper.Watermark="Doctor Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="126" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
+                                <TextBox controls:TextBoxHelper.Watermark="Doctor Last Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="280,0,0,0" />
+                            </Grid>
+                        </GroupBox>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Medication Lists" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <DataGrid
+                    <StackPanel>
+                        <Grid>
+                            <Button Content="Add" VerticalAlignment="Top"  Click="Row_Add_Button_Click" HorizontalAlignment="Left" Height="10" Width="40"></Button>
+                            <Button Content="Save" VerticalAlignment="Top" HorizontalAlignment="Left" Height="10" Width="40" Margin="45,0,0,0"></Button>
+                        </Grid>
+                        <DataGrid
                         AutoGenerateColumns="false" 
                         DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                        CanUserAddRows="True" Name="DGMedicationList" ItemsSource="{Binding  ObservableEvtCode}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Medication Name" Binding="{Binding MedicationName}"/>
-                            <DataGridTextColumn Header="Medication Dose" Binding="{Binding MedicationDose}"/>
-                            <DataGridTextColumn Header="Medication Frequency" Binding="{Binding MedicationFrequency}"/>
-                            <DataGridTextColumn Header="Medication Pharmacy" Binding="{Binding MedicationPharmacy}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                        CanUserAddRows="False" GridLinesVisibility="All"  Name="DGMedicationList" ItemsSource="{Binding  ObservableEvtCode}"  >
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn ></DataGridCheckBoxColumn>
+                                <DataGridTextColumn  Header="Medication Name" Width="*" Binding="{Binding MedicationName}"/>
+                                <DataGridTextColumn Header="Medication Dose" Width="*" Binding="{Binding MedicationDose}"/>
+                                <DataGridTextColumn Header="Medication Frequency" Width="*" Binding="{Binding MedicationFrequency}"/>
+                                <DataGridTextColumn Header="Medication Pharmacy" Width="*" Binding="{Binding MedicationPharmacy}"/>
+                                <DataGridTextColumn Header="Doctor Prescribed" Width="*" Binding="{Binding DoctorPrescribed}"/>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                    </StackPanel>
                 </TabItem>
-                
-                   
                 <TabItem Header="Alergies" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                 <TabItem Header="Medical Notes" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             </TabControl>

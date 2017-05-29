@@ -19,3 +19,5 @@ C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj
 C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.csproj.GenerateResource.Cache
 C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.exe
 C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\MedicalManager.pdb
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\NewMedicationWindow.baml
+C:\Users\joshb\Documents\GitHub\MedicalManager\MedicalManager\MedicalManager\obj\Debug\NewMedicationWindow.g.cs

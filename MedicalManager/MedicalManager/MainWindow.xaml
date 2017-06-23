@@ -45,7 +45,11 @@
                 </TabItem>
                 <TabItem Header="Doctors" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                     <StackPanel>
-                        <GroupBox Name="gpb_DoctorInformation" Header="Doctor Information">
+                            <Grid>
+                                <Button Content="Add" VerticalAlignment="Top"  Click="Row_Add_Medication_Button_Click" HorizontalAlignment="Left" Height="10" Width="40"></Button>
+                                <Button Content="Save" VerticalAlignment="Top" HorizontalAlignment="Left" Height="10" Width="40" Margin="45,0,0,0"></Button>
+                            </Grid>
+                            <GroupBox Name="gpb_DoctorInformation" Header="Doctor Information">
                             <Grid>
                                 <TextBox controls:TextBoxHelper.Watermark="Doctor First Name" MaxLength="50" FontStyle="Italic" Height="10" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" />
                                 <TextBox controls:TextBoxHelper.Watermark="Doctor Middle Name" MaxLength="50" FontStyle="Italic" Height="10" Width="126" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,0,0,0"/>
@@ -57,26 +61,44 @@
                 <TabItem Header="Medication Lists" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                     <StackPanel>
                         <Grid>
-                            <Button Content="Add" VerticalAlignment="Top"  Click="Row_Add_Button_Click" HorizontalAlignment="Left" Height="10" Width="40"></Button>
-                            <Button Content="Save" VerticalAlignment="Top" HorizontalAlignment="Left" Height="10" Width="40" Margin="45,0,0,0"></Button>
+                            <Button Content="Add" VerticalAlignment="Top"  Click="Row_Add_Medication_Button_Click" HorizontalAlignment="Left" Height="10" Width="40"></Button>
+                            <Button Content="Save" VerticalAlignment="Top" Click="Row_Delete_Medication_CheckBox" HorizontalAlignment="Left" Height="10" Width="40" Margin="45,0,0,0"></Button>
                         </Grid>
                         <DataGrid
                         AutoGenerateColumns="false" 
                         DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                        CanUserAddRows="False" GridLinesVisibility="All"  Name="DGMedicationList" ItemsSource="{Binding  ObservableEvtCode}"  >
+                        CanUserAddRows="False" GridLinesVisibility="All"  Name="DGMedicationList" ItemsSource="{Binding ObservableEvtCodeMedicationList}"  >
                             <DataGrid.Columns>
-                                <DataGridCheckBoxColumn ></DataGridCheckBoxColumn>
+                                <DataGridCheckBoxColumn Header="Delete" Width="*" Binding="{Binding ShouldDelete}" />
                                 <DataGridTextColumn  Header="Medication Name" Width="*" Binding="{Binding MedicationName}"/>
                                 <DataGridTextColumn Header="Medication Dose" Width="*" Binding="{Binding MedicationDose}"/>
                                 <DataGridTextColumn Header="Medication Frequency" Width="*" Binding="{Binding MedicationFrequency}"/>
                                 <DataGridTextColumn Header="Medication Pharmacy" Width="*" Binding="{Binding MedicationPharmacy}"/>
                                 <DataGridTextColumn Header="Doctor Prescribed" Width="*" Binding="{Binding DoctorPrescribed}"/>
                             </DataGrid.Columns>
-
                         </DataGrid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Alergies" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TabItem Header="Alergies" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <StackPanel>
+                        <Grid>
+                            <Button Content="Add" VerticalAlignment="Top"  Click="Row_Add_Allergen_Button_Click" HorizontalAlignment="Left" Height="10" Width="40"></Button>
+                            <Button Content="Save" VerticalAlignment="Top" HorizontalAlignment="Left" Height="10" Width="40" Margin="45,0,0,0"></Button>
+                        </Grid>
+                        <DataGrid
+                        AutoGenerateColumns="false" 
+                        DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        CanUserAddRows="False" GridLinesVisibility="All"  Name="DGAllergenList" ItemsSource="{Binding ObservableEvtCodeAllergenList}"  >
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn ></DataGridCheckBoxColumn>
+                                <DataGridTextColumn  Header="Allergen Name" Width="*" Binding="{Binding AllergenName}"/>
+                                <DataGridTextColumn Header="Allergen Reaction" Width="*" Binding="{Binding ReactionType}"/>
+                                <DataGridTextColumn Header="Allergen First event Date" Width="*" Binding="{Binding FirstKnownEvent}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem>
+
                 <TabItem Header="Medical Notes" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             </TabControl>
         </DockPanel>

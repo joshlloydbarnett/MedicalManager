@@ -1,0 +1,33 @@
+﻿<Window x:Class="MedicalManager.NewAllergenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        BorderBrush="CornflowerBlue"
+        BorderThickness="0"
+        ResizeMode="NoResize"
+        Background="LightBlue"
+        Title="New Allergen" WindowStartupLocation="CenterOwner" HorizontalAlignment="Center" Height="150" Width="600">
+    <StackPanel Background="LightBlue" Margin="15,10,0,0">
+        <Grid>
+            <TextBox x:Name="AllergenName" controls:TextBoxHelper.Watermark= "Enter Allergen Name" Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <ComboBox  
+                 x:Name="cboReactionType" SelectedIndex="0" HorizontalAlignment="Left" Height="28"  Margin="220,0,0,0" VerticalAlignment="Top" Width="150" >
+                <ComboBoxItem Name="SelectReactionType">Select Reaction Type</ComboBoxItem>
+                <ComboBoxItem Name="SEVERE">Severe</ComboBoxItem>
+                <ComboBoxItem Name="MODERATE">Moderate</ComboBoxItem>
+                <ComboBoxItem Name="MILD">Mild</ComboBoxItem>
+            </ComboBox>
+            <DatePicker x:Name="IncidentDate" controls:TextBoxHelper.Watermark="Incident Date"  VerticalAlignment="Top" HorizontalAlignment="Left"   Margin="450,0,0,0" />
+            <TextBox x:Name="Symptoms" controls:TextBoxHelper.Watermark= "Enter Symptonms" Height="50" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,30,0,0" />
+        </Grid>
+        <Grid>
+            <Button Height="15" Width="30" Content="OK"  Margin="380,3,0,0" Click="Ok_Button_Click"/>
+            <Button Height="15" Width="50" Content="Cancel"  Margin="480,3,0,0" Click="Cancel_ButtonClick"/>
+        </Grid>
+    </StackPanel>
+
+   
+</Window>

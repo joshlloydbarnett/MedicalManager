@@ -1,4 +1,4 @@
-﻿using DataObjects;
+﻿using DataObjects.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,5 +44,7 @@ namespace MedicalManager
             }
             catch (Exception) { throw; }
         }
+
+
     }
 }

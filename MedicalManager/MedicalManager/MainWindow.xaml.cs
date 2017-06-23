@@ -1,9 +1,13 @@
 ﻿
-using DataObjects;
+using DataObjects.Models;
 using System.Collections.Generic;
 using System.Windows;
 using System.Linq;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Collections;
+using System.Data;
+using System;
 
 namespace MedicalManager
 {
@@ -12,15 +16,22 @@ namespace MedicalManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        //used for dynamic grid
+        //used for dynamic grid Medication
         public ObservableCollection<Medication> MedicationList { get; set; }
+        // //used for dynamic grid allergen
+        public ObservableCollection<Allergen> AllergenList { get; set; }
 
         //Windows
         public NewMedicationWindow Nmw { get; set; }
+        public NewAllergenWindow Naw { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            //Allergens
+            AllergenList = new ObservableCollection<Allergen>();
+
+
             MedicationList = new ObservableCollection<Medication>();
             MedicationList.Add(new Medication());
             MedicationList[0].MedicationName = "Lansprozle";
@@ -35,24 +46,43 @@ namespace MedicalManager
             MedicationList[1].MedicationPharmacy = "Valley ";
             MedicationList[1].MedicationDose = "2 ML";
             MedicationList[1].DoctorPrescribed = "Dr. Siaw";
-
-
         }
 
-        public ObservableCollection<Medication> ObservableEvtCode
+        /// <summary>
+        /// Gets list of allergens and updates as changes are made to meds list
+        /// </summary>
+        public ObservableCollection<Medication> ObservableEvtCodeMedicationList => MedicationList;
+
+        /// <summary>
+        /// Gets list of allergens and updates as changes are made to allergen list
+        /// </summary>
+        public ObservableCollection<Allergen> ObservableEvtCodeAllergenList => AllergenList;
+
+        private void Row_Add_Allergen_Button_Click(object sender, RoutedEventArgs e)
         {
-            get
+            //create allergen window
+            Naw = new NewAllergenWindow() { Owner = this };
+            //show window
+            Naw.Show();
+        }
+
+        private void Row_Add_Medication_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //show new window to in put medication
+            Nmw = new NewMedicationWindow() { Owner = this };
+            Nmw.Show();
+        }
+
+        private void Row_Delete_Medication_CheckBox(object sender, RoutedEventArgs e)
+        {
+            List<Medication> deletedMeds = MedicationList.Where(p => p.ShouldDelete).ToList();
+
+            foreach (Medication  item in deletedMeds)
             {
-                return this.MedicationList;
+                MedicationList.Remove(item);
             }
         }
 
-        private void Row_Add_Button_Click(object sender, RoutedEventArgs e)
-        {
-            //show new window to in put medication
-            Nmw = new NewMedicationWindow();
-            Nmw.Owner = this;
-            Nmw.Show();
-        }
+      
     }
 }
